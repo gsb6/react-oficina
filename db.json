@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "joao",
+      "register": "171110992",
+      "course": "React",
+      "birthDate": "2017-08-09",
+      "cep": "94965240",
+      "address": "rua holanda",
+      "number": "1711",
+      "address_detail": "",
+      "district": "Marechal Rondon",
+      "city": "Cachoeirinha",
+      "state": "RS",
+      "status": false,
+      "image": "/assets/teste.png"
+    }
+  ]
+}
