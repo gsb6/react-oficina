@@ -181,7 +181,7 @@ function FormUser({
               type="text"
             />
             <FormField
-              placeholder="address"
+              placeholder="Logradouro"
               onChange={(e) => onChange(e.target.name, e.target.value)}
               value={
                 formValues.find((formValue) => formValue.name === "address")

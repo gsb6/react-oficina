@@ -41,6 +41,20 @@
       "status": true,
       "image": "/assets/teste.png",
       "id": 10
+    },
+    {
+      "name": "joao Pedro",
+      "register": "28712",
+      "course": "Node",
+      "birthDate": "1998-01-26",
+      "cep": "91215-075",
+      "address": "Rua Doutor Galdino Nunes Vieira",
+      "number": "339",
+      "address_detail": "CASA",
+      "district": "Jardim Itu",
+      "status": true,
+      "image": "/assets/teste.png",
+      "id": 11
     }
   ]
 }

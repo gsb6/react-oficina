@@ -11,8 +11,8 @@
   border-radius: 50%;
   border-top: 16px solid #eb8023;
   border-bottom: 16px solid #eb8023;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
