@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FormUser from "../../components/FormUser";
 import { getUserById, updateUser } from "../../services/users";
+import { toast } from "react-toastify";
 import Loader from "../../components/Loader";
 import "./styles.css";
 
@@ -29,7 +30,7 @@ function UserEdit({ match, history }) {
   const onSubmit = async (values) => {
     const data = await updateUser(match.params.id, values);
     if (data) {
-      alert("Registro alterado com sucesso!");
+      toast("Registro alterado com sucesso!");
       history.push("/");
     }
   };

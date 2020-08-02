@@ -24,8 +24,14 @@ function FormUser({
     { name: "number", value: initialValues.number || "" },
     { name: "address_detail", value: initialValues.address_detail || "" },
     { name: "district", value: initialValues.district || "" },
+    { name: "status", value: initialValues.status },
   ]);
 
+  console.log(
+    "status",
+    initialValues,
+    formValues.find((value) => value.name === "status").value
+  );
   const onChange = (name, value) => {
     let filterFormValues = formValues.filter(
       (formValue) => formValue.name !== name
@@ -73,7 +79,7 @@ function FormUser({
         (value) => value.name === "address_detail"
       ).value,
       district: formValues.find((value) => value.name === "district").value,
-      status: true,
+      status: formValues.find((value) => value.name === "status").value,
       image: "/assets/teste.png",
     };
     onSubmit(newUser);
@@ -214,6 +220,35 @@ function FormUser({
               name="district"
               type="text"
             />
+            <p className="labelInput">Status</p>
+            <div className="radioFields">
+              <input
+                type="radio"
+                name="status"
+                onChange={(e) => onChange(e.target.name, true)}
+                checked={
+                  formValues.find((formValue) => formValue.name === "status")
+                    .value === true
+                }
+                value={true}
+              />
+              <label className="labelInput" for="active">
+                Ativo
+              </label>
+              <input
+                type="radio"
+                name="status"
+                onChange={(e) => onChange(e.target.name, false)}
+                checked={
+                  formValues.find((formValue) => formValue.name === "status")
+                    .value === false
+                }
+                value={false}
+              />
+              <label className="labelInput" for="inactive">
+                Inativo
+              </label>
+            </div>
           </div>
           <div style={{ width: "50%", padding: "20px" }}></div>
         </div>

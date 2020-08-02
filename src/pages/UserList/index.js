@@ -5,6 +5,7 @@ import teste from "../../assets/teste.png";
 import "./styles.css";
 import EditIcon from "../../assets/icons/EditButton.svg";
 import DeleteIcon from "../../assets/icons/DeleteButton.svg";
+import { toast } from "react-toastify";
 import FormField from "../../components/FormField";
 import Select from "../../components/Select";
 import Loader from "../../components/Loader";
@@ -25,7 +26,7 @@ function UserList({ history }) {
 
   const deleteUserRow = async (userId) => {
     await deleteUser(userId);
-    window.alert(`Usuário ${userId} excluído com sucesso!`);
+    toast(`Usuário ${userId} excluído com sucesso!`);
     getUsers();
   };
 

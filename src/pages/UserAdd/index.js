@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createUser } from "../../services/users";
+import { toast } from "react-toastify";
 import FormUser from "../../components/FormUser";
 import "./styles.css";
 
@@ -7,7 +8,7 @@ function UserAdd({ history }) {
   const onSubmit = async (values) => {
     const data = await createUser(values);
     if (data) {
-      alert("Registro criado com sucesso!");
+      toast("Registro criado com sucesso!");
       history.push("/");
     }
   };

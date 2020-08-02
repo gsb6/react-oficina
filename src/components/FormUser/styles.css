@@ -63,6 +63,12 @@
   justify-content: space-between;
 }
 
+.radioFields {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
 .labelInput {
   font-family: "Roboto";
   font-style: normal;
