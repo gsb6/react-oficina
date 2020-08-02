@@ -1,8 +1,8 @@
 import api from "../services";
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (query) => {
   try {
-    const { data } = await api.get(`/users`);
+    const { data } = await api.get(`/users${query || ''}`);
     return data;
   } catch (error) {
     throw error;
@@ -20,7 +20,16 @@ export const getUserById = async (userId) => {
 
 export const updateUser = async (user) => {
   try {
-    const { data } = await api.put(`/users`, { user });
+    const { data } = await api.put(`/users/${user.id}`, { user });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteUser = async (userId) => {
+  try {
+    const { data } = await api.delete(`/users/${userId}`);
     return data;
   } catch (error) {
     throw error;
@@ -35,3 +44,5 @@ export const createUser = async (user) => {
     throw error;
   }
 };
+
+

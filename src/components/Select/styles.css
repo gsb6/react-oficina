@@ -1,0 +1,8 @@
+.selectStyled{
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 40px;
+  padding: 10px;
+}
