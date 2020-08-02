@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FormUser from "../../components/FormUser";
-import { getUserById } from "../../services/users";
+import { getUserById, updateUser } from "../../services/users";
 import Loader from "../../components/Loader";
 import "./styles.css";
 
@@ -11,6 +11,14 @@ function UserEdit({ match, history }) {
   useEffect(() => {
     const getUser = async () => {
       const user = await getUserById(match.params.id);
+
+      if (user.birthDate) {
+        const dates = user.birthDate.split("-");
+        user.year = dates[0];
+        user.month = dates[1];
+        user.day = dates[2];
+      }
+
       setUserValues(user);
       setLoading(false);
     };
@@ -18,9 +26,12 @@ function UserEdit({ match, history }) {
     getUser();
   }, [match.params.id]);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("eee", e.target.name.value);
+  const onSubmit = async (values) => {
+    const data = await updateUser(match.params.id, values);
+    if (data) {
+      alert("Registro alterado com sucesso!");
+      history.push("/");
+    }
   };
 
   return loading ? (

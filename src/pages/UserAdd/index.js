@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { createUser } from "../../services/users";
 import FormUser from "../../components/FormUser";
 import "./styles.css";
 
 function UserAdd({ history }) {
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("eee", e.target.name.value);
+  const onSubmit = async (values) => {
+    const data = await createUser(values);
+    if (data) {
+      alert("Registro criado com sucesso!");
+      history.push("/");
+    }
   };
 
   return (
@@ -19,7 +23,7 @@ function UserAdd({ history }) {
         goBack={() => history.push("/")}
         onSubmit={onSubmit}
         buttonCancelText="Cancelar"
-        buttonSubmitText="Alterar"
+        buttonSubmitText="Cadastrar"
       />
     </div>
   );

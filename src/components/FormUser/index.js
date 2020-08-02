@@ -20,9 +20,9 @@ function FormUser({
     { name: "month", value: initialValues.month || "" },
     { name: "year", value: initialValues.year || "" },
     { name: "cep", value: initialValues.cep || "" },
-    { name: "logradouro", value: initialValues.logradouro || "" },
+    { name: "address", value: initialValues.address || "" },
     { name: "number", value: initialValues.number || "" },
-    { name: "address_details", value: initialValues.addressDetails || "" },
+    { name: "address_detail", value: initialValues.address_detail || "" },
     { name: "district", value: initialValues.district || "" },
   ]);
 
@@ -40,25 +40,47 @@ function FormUser({
       let filterFormValues = formValues.filter(
         (formValue) =>
           formValue.name !== "district" &&
-          formValue.name !== "address_details" &&
+          formValue.name !== "address_detail" &&
           formValue.name !== "number" &&
-          formValue.name !== "logradouro" &&
+          formValue.name !== "address" &&
           formValue.name !== "cep"
       );
       filterFormValues.push({ name: "district", value: data.bairro });
       filterFormValues.push({
-        name: "address_details",
+        name: "address_detail",
         value: data.complemento,
       });
       filterFormValues.push({ name: "number", value: "" });
-      filterFormValues.push({ name: "logradouro", value: data.logradouro });
+      filterFormValues.push({ name: "address", value: data.logradouro });
       filterFormValues.push({ name: "cep", value: data.cep });
       setFormValues(filterFormValues);
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: formValues.find((value) => value.name === "name").value,
+      register: formValues.find((value) => value.name === "register").value,
+      course: formValues.find((value) => value.name === "course").value,
+      birthDate: `${formValues.find((value) => value.name === "year").value}-${
+        formValues.find((value) => value.name === "month").value
+      }-${formValues.find((value) => value.name === "day").value}`,
+      cep: formValues.find((value) => value.name === "cep").value,
+      address: formValues.find((value) => value.name === "address").value,
+      number: formValues.find((value) => value.name === "number").value,
+      address_detail: formValues.find(
+        (value) => value.name === "address_detail"
+      ).value,
+      district: formValues.find((value) => value.name === "district").value,
+      status: true,
+      image: "/assets/teste.png",
+    };
+    onSubmit(newUser);
+  };
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={(e) => handleSubmit(e, formValues)}>
       <div className="containerForm">
         <div className="contentForm">
           <div style={{ width: "50%" }}>
@@ -148,13 +170,13 @@ function FormUser({
               type="text"
             />
             <FormField
-              placeholder="Logradouro"
+              placeholder="address"
               onChange={(e) => onChange(e.target.name, e.target.value)}
               value={
-                formValues.find((formValue) => formValue.name === "logradouro")
+                formValues.find((formValue) => formValue.name === "address")
                   .value
               }
-              name="logradouro"
+              name="address"
               type="text"
             />
             <div className="rowFields">
@@ -175,10 +197,10 @@ function FormUser({
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
                   formValues.find(
-                    (formValue) => formValue.name === "address_details"
+                    (formValue) => formValue.name === "address_detail"
                   ).value
                 }
-                name="address_details"
+                name="address_detail"
                 type="text"
               />
             </div>

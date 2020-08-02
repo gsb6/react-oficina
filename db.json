@@ -17,38 +17,6 @@
       "image": "/assets/teste.png"
     },
     {
-      "id": 7,
-      "name": "shuahusa",
-      "register": "171110992",
-      "course": "React",
-      "birthDate": "2017-08-09",
-      "cep": "94965240",
-      "address": "rua holanda",
-      "number": "1711",
-      "address_detail": "",
-      "district": "Marechal Rondon",
-      "city": "Cachoeirinha",
-      "state": "RS",
-      "status": false,
-      "image": "/assets/teste.png"
-    },
-    {
-      "id": 2,
-      "name": "psakopsa",
-      "register": "171110992",
-      "course": "React",
-      "birthDate": "2017-08-09",
-      "cep": "94965240",
-      "address": "rua holanda",
-      "number": "1711",
-      "address_detail": "",
-      "district": "Marechal Rondon",
-      "city": "Cachoeirinha",
-      "state": "RS",
-      "status": true,
-      "image": "/assets/teste.png"
-    },
-    {
       "id": 9,
       "name": "Marcelo",
       "register": "171110992",
@@ -63,6 +31,20 @@
       "state": "RS",
       "status": true,
       "image": "/assets/teste.png"
+    },
+    {
+      "name": "Stephany",
+      "register": "171111099",
+      "course": "React",
+      "birthDate": "2000-03-18",
+      "cep": "90010-130",
+      "address": "Avenida Sepúlveda",
+      "number": "122",
+      "address_detail": "22",
+      "district": "Centro Histórico",
+      "status": true,
+      "image": "/assets/teste.png",
+      "id": 7
     }
   ]
 }
