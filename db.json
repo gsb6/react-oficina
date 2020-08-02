@@ -47,6 +47,22 @@
       "state": "RS",
       "status": true,
       "image": "/assets/teste.png"
+    },
+    {
+      "id": 9,
+      "name": "Marcelo",
+      "register": "171110992",
+      "course": "Node",
+      "birthDate": "2017-08-09",
+      "cep": "94965240",
+      "address": "rua holanda",
+      "number": "1711",
+      "address_detail": "",
+      "district": "Marechal Rondon",
+      "city": "Cachoeirinha",
+      "state": "RS",
+      "status": true,
+      "image": "/assets/teste.png"
     }
   ]
 }

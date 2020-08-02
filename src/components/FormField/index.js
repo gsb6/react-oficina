@@ -1,15 +1,28 @@
 import React from "react";
-import './styles.css';
+import "./styles.css";
 
-function FormField({ label, type, name, value, onChange, width, placeholder }) {
+function FormField({
+  onBlur,
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  width,
+  placeholder,
+}) {
   return (
-    <div style={{ maxWidth: width }} className='inputWrapper' >
-      {label &&
-        <label className='label'>
-          {label}
-        </label>
-      }
-      <input placeholder={placeholder} className='formField' type={type} name={name} value={value} onChange={onChange} />
+    <div style={{ maxWidth: width }} className="inputWrapper">
+      {label && <label className="label">{label}</label>}
+      <input
+        onBlur={onBlur}
+        placeholder={placeholder}
+        className="formField"
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 }
