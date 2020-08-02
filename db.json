@@ -10,7 +10,7 @@
       "number": "1711",
       "address_detail": "",
       "district": "Marechal Rondon",
-      "status": false,
+      "status": true,
       "image": "/assets/teste.png",
       "id": 1
     },

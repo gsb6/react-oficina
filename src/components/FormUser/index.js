@@ -134,6 +134,8 @@ function FormUser({
               <FormField
                 placeholder="Dia"
                 name="day"
+                min="1"
+                max="31"
                 type="number"
                 width={"30%"}
                 onChange={(e) => onChange(e.target.name, e.target.value)}
@@ -143,6 +145,8 @@ function FormUser({
               />
               <FormField
                 placeholder="Mês"
+                min="1"
+                max="12"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
                   formValues.find((formValue) => formValue.name === "month")
@@ -155,6 +159,7 @@ function FormUser({
               <FormField
                 width={"30%"}
                 placeholder="Ano"
+                min={1900}
                 name="year"
                 type="number"
                 onChange={(e) => onChange(e.target.name, e.target.value)}

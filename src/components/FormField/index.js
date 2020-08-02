@@ -3,6 +3,8 @@ import "./styles.css";
 
 function FormField({
   onBlur,
+  min,
+  max,
   label,
   type,
   name,
@@ -15,6 +17,8 @@ function FormField({
     <div style={{ maxWidth: width }} className="inputWrapper">
       {label && <label className="label">{label}</label>}
       <input
+        min={min}
+        max={max}
         onBlur={onBlur}
         placeholder={placeholder}
         className="formField"
