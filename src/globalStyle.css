@@ -13,6 +13,26 @@ button {
   cursor: pointer;
 }
 
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f6dc;
+  border-bottom: 2px solid #eb8023;
+}
+
+.header-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-content img {
+  width: auto;
+  height: 50px;
+}
+
 .container {
   max-width: 1200px;
   margin: 48px auto;

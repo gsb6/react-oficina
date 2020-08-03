@@ -1,12 +1,13 @@
 import React from 'react';
-import AGES from '../../assets/AGES.png'
-import './styles.css'
+import AGES from '../../assets/AGES.png';
 
 function Header() {
   return (
-    <div className='header'>
-      <img className='logoAges' src={AGES} alt='Logo Ages'/>
-    </div>
+    <header className="header">
+      <div className="header-content">
+        <img className="logoAges" src={AGES} alt="Logo Ages" />
+      </div>
+    </header>
   );
 }
 
