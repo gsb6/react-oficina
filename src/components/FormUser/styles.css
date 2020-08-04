@@ -12,7 +12,7 @@
 }
 
 .buttonCancel {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -29,7 +29,7 @@
 }
 
 .buttonSubmit {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -67,15 +67,4 @@
   display: flex;
   flex: 1;
   align-items: center;
-}
-
-.labelInput {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  color: #212529;
 }
