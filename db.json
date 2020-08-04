@@ -24,7 +24,7 @@
       "number": "122",
       "address_detail": "22",
       "district": "Centro Histórico",
-      "status": true,
+      "status": false,
       "image": "/assets/teste.png",
       "id": 7
     },

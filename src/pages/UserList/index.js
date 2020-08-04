@@ -31,39 +31,29 @@ function UserList({ history }) {
   };
 
   const getRows = (user) => (
-    <tr className="trStyled" key={user.id}>
-      <td style={{ textAlign: 'center' }}>
+    <tr key={user.id}>
+      <td>
         <img className="imageProfile" src={teste} alt="imagem do usuário" />
       </td>
-      <td>
-        <p>{user.name}</p>
-      </td>
-      <td>
-        <p>{user.register}</p>
-      </td>
-      <td>
-        <p>{user.course}</p>
-      </td>
+      <td>{user.name}</td>
+      <td>{user.register} </td>
+      <td>{user.course}</td>
       <td>
         {user.status ? (
-          <td style={{ background: '#C9F7F5' }} className="badge">
-            <p style={{ color: '#1BC5BD' }}>Ativo</p>
-          </td>
+          <span className="badge active-badge">Ativo</span>
         ) : (
-          <td style={{ background: '#FFE2E5' }} className="badge">
-            <p color={{ color: '#F64E60' }}>Inativo</p>
-          </td>
+          <span className="badge inactive-badge">Inativo</span>
         )}
       </td>
       <td>
-        <td style={{ cursor: 'pointer' }}>
+        <td>
           <img
             onClick={() => history.push(`user/${user.id}`)}
             src={EditIcon}
             alt="Editar usuário"
           />
         </td>
-        <td style={{ cursor: 'pointer' }}>
+        <td>
           <img
             onClick={() => deleteUserRow(user.id)}
             src={DeleteIcon}
@@ -130,9 +120,8 @@ function UserList({ history }) {
         <div className="card-header">
           <h2>Alunos cadastrados</h2>
           <button
-            type="button"
             onClick={() => history.push('register/user')}
-            className="registerButton"
+            className="primary-button"
           >
             Cadastrar
           </button>
@@ -140,14 +129,14 @@ function UserList({ history }) {
         {loading ? (
           <Loader />
         ) : (
-          <table className="table-users">
-            <thead style={{ marginTop: '40px' }}>
+          <table>
+            <thead>
               <th></th>
               <th>Nome</th>
               <th>Matricula</th>
               <th>Curso</th>
               <th>Status</th>
-              <th style={{ textAlign: 'center' }}>Ações</th>
+              <th>Ações</th>
             </thead>
             <tbody>{users.map((user) => getRows(user))}</tbody>
           </table>

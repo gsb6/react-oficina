@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import FormField from "../../components/FormField";
-import Select from "../../components/Select";
-import axios from "axios";
-import "./styles.css";
+import FormField from '../../components/FormField';
+import Select from '../../components/Select';
+import axios from 'axios';
+import './styles.css';
 
 function FormUser({
   goBack,
@@ -13,24 +13,24 @@ function FormUser({
   buttonCancelText,
 }) {
   const [formValues, setFormValues] = useState([
-    { name: "name", value: initialValues.name || "" },
-    { name: "register", value: initialValues.register || "" },
-    { name: "day", value: initialValues.day || "" },
-    { name: "course", value: initialValues.course || "" },
-    { name: "month", value: initialValues.month || "" },
-    { name: "year", value: initialValues.year || "" },
-    { name: "cep", value: initialValues.cep || "" },
-    { name: "address", value: initialValues.address || "" },
-    { name: "number", value: initialValues.number || "" },
-    { name: "address_detail", value: initialValues.address_detail || "" },
-    { name: "district", value: initialValues.district || "" },
-    { name: "status", value: initialValues.status },
+    { name: 'name', value: initialValues.name || '' },
+    { name: 'register', value: initialValues.register || '' },
+    { name: 'day', value: initialValues.day || '' },
+    { name: 'course', value: initialValues.course || '' },
+    { name: 'month', value: initialValues.month || '' },
+    { name: 'year', value: initialValues.year || '' },
+    { name: 'cep', value: initialValues.cep || '' },
+    { name: 'address', value: initialValues.address || '' },
+    { name: 'number', value: initialValues.number || '' },
+    { name: 'address_detail', value: initialValues.address_detail || '' },
+    { name: 'district', value: initialValues.district || '' },
+    { name: 'status', value: initialValues.status },
   ]);
 
   console.log(
-    "status",
+    'status',
     initialValues,
-    formValues.find((value) => value.name === "status").value
+    formValues.find((value) => value.name === 'status').value
   );
   const onChange = (name, value) => {
     let filterFormValues = formValues.filter(
@@ -45,20 +45,20 @@ function FormUser({
     if (data) {
       let filterFormValues = formValues.filter(
         (formValue) =>
-          formValue.name !== "district" &&
-          formValue.name !== "address_detail" &&
-          formValue.name !== "number" &&
-          formValue.name !== "address" &&
-          formValue.name !== "cep"
+          formValue.name !== 'district' &&
+          formValue.name !== 'address_detail' &&
+          formValue.name !== 'number' &&
+          formValue.name !== 'address' &&
+          formValue.name !== 'cep'
       );
-      filterFormValues.push({ name: "district", value: data.bairro });
+      filterFormValues.push({ name: 'district', value: data.bairro });
       filterFormValues.push({
-        name: "address_detail",
+        name: 'address_detail',
         value: data.complemento,
       });
-      filterFormValues.push({ name: "number", value: "" });
-      filterFormValues.push({ name: "address", value: data.logradouro });
-      filterFormValues.push({ name: "cep", value: data.cep });
+      filterFormValues.push({ name: 'number', value: '' });
+      filterFormValues.push({ name: 'address', value: data.logradouro });
+      filterFormValues.push({ name: 'cep', value: data.cep });
       setFormValues(filterFormValues);
     }
   };
@@ -66,21 +66,21 @@ function FormUser({
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
-      name: formValues.find((value) => value.name === "name").value,
-      register: formValues.find((value) => value.name === "register").value,
-      course: formValues.find((value) => value.name === "course").value,
-      birthDate: `${formValues.find((value) => value.name === "year").value}-${
-        formValues.find((value) => value.name === "month").value
-      }-${formValues.find((value) => value.name === "day").value}`,
-      cep: formValues.find((value) => value.name === "cep").value,
-      address: formValues.find((value) => value.name === "address").value,
-      number: formValues.find((value) => value.name === "number").value,
+      name: formValues.find((value) => value.name === 'name').value,
+      register: formValues.find((value) => value.name === 'register').value,
+      course: formValues.find((value) => value.name === 'course').value,
+      birthDate: `${formValues.find((value) => value.name === 'year').value}-${
+        formValues.find((value) => value.name === 'month').value
+      }-${formValues.find((value) => value.name === 'day').value}`,
+      cep: formValues.find((value) => value.name === 'cep').value,
+      address: formValues.find((value) => value.name === 'address').value,
+      number: formValues.find((value) => value.name === 'number').value,
       address_detail: formValues.find(
-        (value) => value.name === "address_detail"
+        (value) => value.name === 'address_detail'
       ).value,
-      district: formValues.find((value) => value.name === "district").value,
-      status: formValues.find((value) => value.name === "status").value,
-      image: "/assets/teste.png",
+      district: formValues.find((value) => value.name === 'district').value,
+      status: formValues.find((value) => value.name === 'status').value,
+      image: '/assets/teste.png',
     };
     onSubmit(newUser);
   };
@@ -89,14 +89,14 @@ function FormUser({
     <form onSubmit={(e) => handleSubmit(e, formValues)}>
       <div className="containerForm">
         <div className="contentForm">
-          <div style={{ width: "50%" }}>
+          <div style={{ width: '50%' }}>
             <FormField
               label="Nome"
               placeholder="Nome"
               name="name"
               width="100%"
               value={
-                formValues.find((formValue) => formValue.name === "name").value
+                formValues.find((formValue) => formValue.name === 'name').value
               }
               type="text"
               onChange={(e) => onChange(e.target.name, e.target.value)}
@@ -110,22 +110,22 @@ function FormUser({
                 width="49%"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
-                  formValues.find((formValue) => formValue.name === "register")
+                  formValues.find((formValue) => formValue.name === 'register')
                     .value
                 }
               />
               <Select
                 name="course"
                 value={
-                  formValues.find((formValue) => formValue.name === "course")
+                  formValues.find((formValue) => formValue.name === 'course')
                     .value
                 }
                 label="Curso"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 width="49%"
                 options={[
-                  { label: "React", value: "React" },
-                  { label: "Node", value: "Node" },
+                  { label: 'React', value: 'React' },
+                  { label: 'Node', value: 'Node' },
                 ]}
               />
             </div>
@@ -137,10 +137,10 @@ function FormUser({
                 min="1"
                 max="31"
                 type="number"
-                width={"30%"}
+                width={'30%'}
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
-                  formValues.find((formValue) => formValue.name === "day").value
+                  formValues.find((formValue) => formValue.name === 'day').value
                 }
               />
               <FormField
@@ -149,22 +149,22 @@ function FormUser({
                 max="12"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
-                  formValues.find((formValue) => formValue.name === "month")
+                  formValues.find((formValue) => formValue.name === 'month')
                     .value
                 }
-                width={"30%"}
+                width={'30%'}
                 name="month"
                 type="number"
               />
               <FormField
-                width={"30%"}
+                width={'30%'}
                 placeholder="Ano"
                 min={1900}
                 name="year"
                 type="number"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
-                  formValues.find((formValue) => formValue.name === "year")
+                  formValues.find((formValue) => formValue.name === 'year')
                     .value
                 }
               />
@@ -175,7 +175,7 @@ function FormUser({
               onChange={(e) => onChange(e.target.name, e.target.value)}
               onBlur={(e) => onChangeByCep(e.target.value)}
               value={
-                formValues.find((formValue) => formValue.name === "cep").value
+                formValues.find((formValue) => formValue.name === 'cep').value
               }
               name="cep"
               type="text"
@@ -184,7 +184,7 @@ function FormUser({
               placeholder="Logradouro"
               onChange={(e) => onChange(e.target.name, e.target.value)}
               value={
-                formValues.find((formValue) => formValue.name === "address")
+                formValues.find((formValue) => formValue.name === 'address')
                   .value
               }
               name="address"
@@ -196,7 +196,7 @@ function FormUser({
                 placeholder="Número"
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
-                  formValues.find((formValue) => formValue.name === "number")
+                  formValues.find((formValue) => formValue.name === 'number')
                     .value
                 }
                 name="number"
@@ -208,7 +208,7 @@ function FormUser({
                 onChange={(e) => onChange(e.target.name, e.target.value)}
                 value={
                   formValues.find(
-                    (formValue) => formValue.name === "address_detail"
+                    (formValue) => formValue.name === 'address_detail'
                   ).value
                 }
                 name="address_detail"
@@ -219,7 +219,7 @@ function FormUser({
               placeholder="Bairro"
               onChange={(e) => onChange(e.target.name, e.target.value)}
               value={
-                formValues.find((formValue) => formValue.name === "district")
+                formValues.find((formValue) => formValue.name === 'district')
                   .value
               }
               name="district"
@@ -232,7 +232,7 @@ function FormUser({
                 name="status"
                 onChange={(e) => onChange(e.target.name, true)}
                 checked={
-                  formValues.find((formValue) => formValue.name === "status")
+                  formValues.find((formValue) => formValue.name === 'status')
                     .value === true
                 }
                 value={true}
@@ -245,7 +245,7 @@ function FormUser({
                 name="status"
                 onChange={(e) => onChange(e.target.name, false)}
                 checked={
-                  formValues.find((formValue) => formValue.name === "status")
+                  formValues.find((formValue) => formValue.name === 'status')
                     .value === false
                 }
                 value={false}
@@ -255,14 +255,14 @@ function FormUser({
               </label>
             </div>
           </div>
-          <div style={{ width: "50%", padding: "20px" }}></div>
+          <div style={{ width: '50%', padding: '20px' }}></div>
         </div>
         <span className="line" />
         <div className="footerForm">
           <button type="button" className="buttonCancel" onClick={goBack}>
             {buttonCancelText}
           </button>
-          <button type="submit" className="buttonSubmit">
+          <button type="submit" className="primary-button">
             {buttonSubmitText}
           </button>
         </div>
